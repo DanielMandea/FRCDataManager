@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-extension UITableView {
+public extension UITableView {
     
     /**
      * Use this method in order to scroll to some indexpath with delay 
@@ -19,7 +19,7 @@ extension UITableView {
      * :param   scrollPosition The position of scrolling
      * :param   animated Used to define if the action should be animated
      */
-    func scrollToIndexPathWithDelay(delay:Double, indexPath: NSIndexPath, scrollPosition: UITableViewScrollPosition, animated: Bool) {
+    public func scrollToIndexPathWithDelay(delay:Double, indexPath: NSIndexPath, scrollPosition: UITableViewScrollPosition, animated: Bool) {
         let delay = delay * Double(NSEC_PER_SEC)
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue(), {
@@ -33,7 +33,7 @@ extension UITableView {
     * :param   scrollPosition The position of scrolling
     * :param   animated Used to define if the action should be animated
     */
-    func scrollToIndexPath(indexPath: NSIndexPath, scrollPosition: UITableViewScrollPosition, animated: Bool) {
+    public func scrollToIndexPath(indexPath: NSIndexPath, scrollPosition: UITableViewScrollPosition, animated: Bool) {
         self.scrollToRowAtIndexPath(indexPath, atScrollPosition: scrollPosition, animated: animated)
         self.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
@@ -42,7 +42,7 @@ extension UITableView {
      Use this method in order to check if some indexPath is valid 
      - parameter indexPath: The indexpath that needs to be checked
      */
-    func indexPathIsValid(indexPath: NSIndexPath) -> Bool {
+    public func indexPathIsValid(indexPath: NSIndexPath) -> Bool {
         let section = indexPath.section
         let row = indexPath.row
         
@@ -60,13 +60,13 @@ extension UITableView {
 
 // MARK: - BaseTVCFetchRequestDelegate
 
-extension UITableView: BaseTVCFetchRequestDelegate {
+public extension UITableView: BaseTVCFetchRequestDelegate {
     
-    func controllerWillChangeContent() {
+    public func controllerWillChangeContent() {
         self.beginUpdates()
     }
     
-    func sectionChanged(sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+    public func sectionChanged(sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         switch type {
         case .Insert:
             self.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
@@ -77,7 +77,7 @@ extension UITableView: BaseTVCFetchRequestDelegate {
         }
     }
     
-    func itemChanged(indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    public func itemChanged(indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
         case .Insert:
             self.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
@@ -101,13 +101,11 @@ extension UITableView: BaseTVCFetchRequestDelegate {
         }
     }
     
-    func controllerDidChangeContent() {
+    public func controllerDidChangeContent() {
         self.endUpdates()
     }
     
-    func controllerShouldReloadData() {
+    public func controllerShouldReloadData() {
         self.reloadData()
     }
-    
 }
-

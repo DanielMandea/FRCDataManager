@@ -10,24 +10,24 @@ import UIKit
 import CoreData
 import UIKit
 
-class BaseTVCFetchRequestDataManger: NSObject {
+public class BaseTVCFetchRequestDataManger: NSObject {
     
     // MARK: - Public Setters 
     
-    var delegate: BaseTVCFetchRequestDelegate?
-    var positionDelegate: UpdateListPositionDelegate?
-    var errorDelegate: NSErrorDelegate?
-    var controllerDelegate: UIViewControllerDelegate?
+    public var delegate: BaseTVCFetchRequestDelegate?
+    public var positionDelegate: UpdateListPositionDelegate?
+    public var errorDelegate: NSErrorDelegate?
+    public var controllerDelegate: UIViewControllerDelegate?
     
     // MARK: - Public Setters
     
-    var searchText:String? {
+    public var searchText:String? {
         didSet {
             // Override in your class
         }
     }
     
-    var predicate:NSPredicate? {
+    public var predicate:NSPredicate? {
         get {
             // Override in your class
             return nil
@@ -37,21 +37,21 @@ class BaseTVCFetchRequestDataManger: NSObject {
 
 // MARK: - NSFetchedResultsControllerDelegate
 
-extension BaseTVCFetchRequestDataManger: NSFetchedResultsControllerDelegate {
+public extension BaseTVCFetchRequestDataManger: NSFetchedResultsControllerDelegate {
     
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+    public func controllerWillChangeContent(controller: NSFetchedResultsController) {
         self.delegate?.controllerWillChangeContent()
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+    public func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
             self.delegate?.sectionChanged(sectionIndex, forChangeType: type)
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    public func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         self.delegate?.itemChanged(indexPath, forChangeType: type, newIndexPath: newIndexPath)
     }
     
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    public func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.delegate?.controllerDidChangeContent()
     }
 }
@@ -61,23 +61,23 @@ extension BaseTVCFetchRequestDataManger: NSFetchedResultsControllerDelegate {
 /**
 This protocol is used to notify a list view that should upate the cells and sections 
 */
-@objc protocol BaseTVCFetchRequestDelegate {
+@objc public protocol BaseTVCFetchRequestDelegate {
     
-    func itemChanged(indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?)
+    public func itemChanged(indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?)
     
-    func sectionChanged(sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType)
+    public func sectionChanged(sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType)
     
-    func controllerWillChangeContent()
+    public func controllerWillChangeContent()
     
-    func controllerDidChangeContent()
+    public func controllerDidChangeContent()
     
-    func controllerShouldReloadData()
+    public func controllerShouldReloadData()
 }
 
 /**
  This protocol is used in order to notify the receiver that should change position
  */
-@objc protocol UpdateListPositionDelegate: BaseTVCFetchRequestDelegate {
+@objc public protocol UpdateListPositionDelegate: BaseTVCFetchRequestDelegate {
    
-    func shouldScrollToRowAtIndexPath(indexPath: NSIndexPath)
+    public func shouldScrollToRowAtIndexPath(indexPath: NSIndexPath)
 }

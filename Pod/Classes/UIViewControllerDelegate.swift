@@ -10,14 +10,14 @@ import Foundation
 /**
  Use this protocol on UIViewController in order to notify the view controller that should perform some action
 */
-@objc protocol UIViewControllerDelegate: NSObjectProtocol {
+@objc public protocol UIViewControllerDelegate: NSObjectProtocol {
     /**
      Use this method in order to notify the controller that should dismiss some view controller 
      - parameter viewController: The view controller that will be dismissed
      - parameter flag:           Tells if the operation should be animated 
      - parameter completion:     Called after the operation was completed
      */
-    func shouldDismissViewController(viewController: UIViewController, animated flag: Bool, completion: (() -> Void)?)
+    public func shouldDismissViewController(viewController: UIViewController, animated flag: Bool, completion: (() -> Void)?)
     
     /**
      Use this method in order to notify the controller that should present some view controller
@@ -25,12 +25,12 @@ import Foundation
      - parameter flag:           Tells if the operation should be animated
      - parameter completion:     Called after the operation was completed
      */
-    func shouldPresentViewController(viewController: UIViewController, animated flag: Bool, completion: (() -> Void)?)
+    public func shouldPresentViewController(viewController: UIViewController, animated flag: Bool, completion: (() -> Void)?)
     
     /**
      Use this method in order to notify the controller that should push some view controller
      - parameter viewController: The view controller that will be dismissed
      - parameter flag:           Tells if the operation should be animated
      */
-    func shouldPushViewController(viewController: UIViewController, animated flag: Bool)
+    public func shouldPushViewController(viewController: UIViewController, animated flag: Bool)
 }
