@@ -1,0 +1,19 @@
+PODS:
+  - FRCDataManager (0.1.0)
+  - Quick (0.8.0)
+
+DEPENDENCIES:
+  - FRCDataManager (from `../`)
+  - Quick (~> 0.8.0)
+
+EXTERNAL SOURCES:
+  FRCDataManager:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FRCDataManager: 966b180cc47c8e94e9661643945fa901528a5257
+  Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
+
+PODFILE CHECKSUM: d7b478b47addbcc0524a3234b3933310728162fa
+
+COCOAPODS: 1.0.0.beta.5

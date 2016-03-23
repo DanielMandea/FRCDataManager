@@ -1,0 +1,6 @@
+framework module Pods_FRCDataManager_Tests {
+  umbrella header "Pods-FRCDataManager_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

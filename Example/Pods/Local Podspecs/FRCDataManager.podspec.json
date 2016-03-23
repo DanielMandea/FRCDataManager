@@ -1,0 +1,25 @@
+{
+  "name": "FRCDataManager",
+  "version": "0.1.0",
+  "summary": "A short description of FRCDataManager.",
+  "description": "This pod includes the base classes for the kms project.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/FRCDataManager",
+  "license": "MIT",
+  "authors": {
+    "Mandea Daniel": "daniel.mandea@yahoo.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/FRCDataManager.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "FRCDataManager": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

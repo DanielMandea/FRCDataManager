@@ -1,0 +1,6 @@
+framework module FRCDataManager {
+  umbrella header "FRCDataManager-umbrella.h"
+
+  export *
+  module * { export * }
+}
