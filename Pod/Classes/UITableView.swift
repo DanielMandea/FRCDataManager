@@ -60,7 +60,7 @@ public extension UITableView {
 
 // MARK: - BaseTVCFetchRequestDelegate
 
-public extension UITableView: BaseTVCFetchRequestDelegate {
+extension UITableView: BaseTVCFetchRequestDelegate {
     
     public func controllerWillChangeContent() {
         self.beginUpdates()

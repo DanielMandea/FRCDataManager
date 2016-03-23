@@ -16,7 +16,7 @@ public protocol SelectItemDataManagerDelegate {
      - parameter indexPath: The indexPath of the cell that will be dequeued
      - parameter cellData:  The data that will be used in order to update dequeued cell
      */
-    public func tableViewCell(tableView: UITableView, indexPath: NSIndexPath, cellData:NSManagedObject?) -> UITableViewCell;
+    func tableViewCell(tableView: UITableView, indexPath: NSIndexPath, cellData:NSManagedObject?) -> UITableViewCell;
 }
 
 public class BaseTableViewFRCDataManager: BaseTVCFetchRequestDataManger {
@@ -42,7 +42,7 @@ public class BaseTableViewFRCDataManager: BaseTVCFetchRequestDataManger {
 
 // MARK: - UITableViewDataSource
 
-public extension BaseTableViewFRCDataManager: UITableViewDataSource {
+extension BaseTableViewFRCDataManager: UITableViewDataSource {
     
     public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.fetchedResultsController.sections?.count ?? 0
@@ -61,10 +61,9 @@ public extension BaseTableViewFRCDataManager: UITableViewDataSource {
 
 // MARK: - SelectItemDataSourceDelegate
 
-public extension BaseTableViewFRCDataManager: SelectItemDataManagerDelegate {
+extension BaseTableViewFRCDataManager: SelectItemDataManagerDelegate {
     
     public func tableViewCell(tableView: UITableView, indexPath: NSIndexPath, cellData: NSManagedObject?) -> UITableViewCell {
-        
         assert(true, "Oevrride this method in your subclass")
         return UITableViewCell()
     }

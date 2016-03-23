@@ -37,7 +37,7 @@ public class BaseTVCFetchRequestDataManger: NSObject {
 
 // MARK: - NSFetchedResultsControllerDelegate
 
-public extension BaseTVCFetchRequestDataManger: NSFetchedResultsControllerDelegate {
+extension BaseTVCFetchRequestDataManger: NSFetchedResultsControllerDelegate {
     
     public func controllerWillChangeContent(controller: NSFetchedResultsController) {
         self.delegate?.controllerWillChangeContent()
@@ -61,23 +61,23 @@ public extension BaseTVCFetchRequestDataManger: NSFetchedResultsControllerDelega
 /**
 This protocol is used to notify a list view that should upate the cells and sections 
 */
-@objc public protocol BaseTVCFetchRequestDelegate {
+public protocol BaseTVCFetchRequestDelegate {
     
-    public func itemChanged(indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?)
+    func itemChanged(indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?)
     
-    public func sectionChanged(sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType)
+    func sectionChanged(sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType)
     
-    public func controllerWillChangeContent()
+    func controllerWillChangeContent()
     
-    public func controllerDidChangeContent()
+    func controllerDidChangeContent()
     
-    public func controllerShouldReloadData()
+    func controllerShouldReloadData()
 }
 
 /**
  This protocol is used in order to notify the receiver that should change position
  */
-@objc public protocol UpdateListPositionDelegate: BaseTVCFetchRequestDelegate {
+public protocol UpdateListPositionDelegate: BaseTVCFetchRequestDelegate {
    
-    public func shouldScrollToRowAtIndexPath(indexPath: NSIndexPath)
+    func shouldScrollToRowAtIndexPath(indexPath: NSIndexPath)
 }
