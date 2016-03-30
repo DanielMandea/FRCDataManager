@@ -65,7 +65,7 @@ extension BaseDataSource: UITableViewDataSource {
         return self.tableView(tableView, cellForIndexPath: indexPath, cellData: cellData)
     }
     
-    func tableView(tableView: UITableView, cellForIndexPath indexPath: NSIndexPath, cellData:BaseCell) -> UITableViewCell {
+    public func tableView(tableView: UITableView, cellForIndexPath indexPath: NSIndexPath, cellData:BaseCell) -> UITableViewCell {
         assert(true, "Please override this method into your sublcass")
         return UITableViewCell()
     }
