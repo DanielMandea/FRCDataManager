@@ -34,6 +34,9 @@
 		99EA4C2965C6105AF4B62015B1064952 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D4697662B1AD1785A04DC3C25BE0C /* UITableView.swift */; };
 		9CF38CBB2D32A04ACAF12A1C48211529 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CA2BFD570CD736156D66A95A51655E2 /* Foundation.framework */; };
 		9EC689E89C590BE2EC2782A9B09DAC12 /* FRCDataManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8016D790859594E6E41846E537E19E25 /* FRCDataManager-dummy.m */; };
+		A0F067C21CABFEDC0004E258 /* BaseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F067BF1CABFEDC0004E258 /* BaseSection.swift */; };
+		A0F067C31CABFEDC0004E258 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F067C01CABFEDC0004E258 /* BaseCell.swift */; };
+		A0F067C41CABFEDC0004E258 /* BaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F067C11CABFEDC0004E258 /* BaseDataSource.swift */; };
 		A488979FDD6FC3F9D58AA42776FBB92E /* FRCDataManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E7EB3075A1EDBE75EFB594251A80E67 /* FRCDataManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AC302E0CC8EDE6E68F0302159A22C66A /* Quick-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD202C12451D87BEFB4D31E5FA9C8A0 /* Quick-dummy.m */; };
 		AC5851894B3108BBBA91F0043B31DD8D /* World+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911772FDEEB073BBE072BADD12FD0D6 /* World+DSL.swift */; };
@@ -133,6 +136,9 @@
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9740B79A406E6CC1B99E5617B0723684 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D4332E18FAA9FC3A0B404E93A379113 /* World.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = World.h; path = Quick/World.h; sourceTree = "<group>"; };
+		A0F067BF1CABFEDC0004E258 /* BaseSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSection.swift; sourceTree = "<group>"; };
+		A0F067C01CABFEDC0004E258 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		A0F067C11CABFEDC0004E258 /* BaseDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataSource.swift; sourceTree = "<group>"; };
 		AC2FF9025D4B19B0FDDBC7FA71C32608 /* DSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DSL.swift; path = Quick/DSL/DSL.swift; sourceTree = "<group>"; };
 		B2883E6FB6F2A2A89B2F7FE83FFAC44A /* UIViewControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewControllerDelegate.swift; sourceTree = "<group>"; };
 		B3C097C8D56452802B38A5E53F8CE6C6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -217,6 +223,9 @@
 				059E16DB87477F5F7EFA47EE2895BB4F /* NSErrorDelegate.swift */,
 				C79D4697662B1AD1785A04DC3C25BE0C /* UITableView.swift */,
 				B2883E6FB6F2A2A89B2F7FE83FFAC44A /* UIViewControllerDelegate.swift */,
+				A0F067BF1CABFEDC0004E258 /* BaseSection.swift */,
+				A0F067C01CABFEDC0004E258 /* BaseCell.swift */,
+				A0F067C11CABFEDC0004E258 /* BaseDataSource.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -608,7 +617,10 @@
 				756A297BA5638BEE09A009B142939CE5 /* BaseTableViewFRCDataManager.swift in Sources */,
 				53C0AF7BE6D52F6A8ADBC887D8DB9B4D /* BaseTVCFetchRequestDataManger.swift in Sources */,
 				9EC689E89C590BE2EC2782A9B09DAC12 /* FRCDataManager-dummy.m in Sources */,
+				A0F067C41CABFEDC0004E258 /* BaseDataSource.swift in Sources */,
 				65FE9B62861214A2E3F076171B33F07D /* ListDetailsDelegate.swift in Sources */,
+				A0F067C31CABFEDC0004E258 /* BaseCell.swift in Sources */,
+				A0F067C21CABFEDC0004E258 /* BaseSection.swift in Sources */,
 				3163DCE0B89EECF124B02FE91A20356B /* NSErrorDelegate.swift in Sources */,
 				99EA4C2965C6105AF4B62015B1064952 /* UITableView.swift in Sources */,
 				C065F1EA81AA2E35BCA032DDE42CE9C7 /* UIViewControllerDelegate.swift in Sources */,
