@@ -8,26 +8,26 @@
 
 import UIKit
 
-class BaseCell: NSObject {
+public class BaseCell: NSObject {
     
     // MARK: - Public variables
     
     /// Cell indentifier
-    var identifier:String
+    public var identifier:String
     /// The data that will populate the cell
-    var data: AnyObject?
+    public var data: AnyObject?
     
     // MARK: - Initialize 
     
     /// Use this designated initialiser if both identifer and data are needed
-    init(identifier:String, data: AnyObject?) {
+    public init(identifier:String, data: AnyObject?) {
         self.identifier = identifier
         self.data = data
         super.init()
     }
     
     /// Use this convenience initializer if only identifier is needed
-    convenience init(identifier:String) {
+    public convenience init(identifier:String) {
         self.init(identifier: identifier, data: nil)
     }
 }
