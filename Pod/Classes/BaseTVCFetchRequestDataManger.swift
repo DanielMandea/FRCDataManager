@@ -10,24 +10,24 @@ import UIKit
 import CoreData
 import UIKit
 
-public class BaseTVCFetchRequestDataManger: NSObject {
+open class BaseTVCFetchRequestDataManger: NSObject {
     
     // MARK: - Public Setters 
     
-    public var delegate: BaseTVCFetchRequestDelegate?
-    public var positionDelegate: UpdateListPositionDelegate?
-    public var errorDelegate: NSErrorDelegate?
-    public var controllerDelegate: UIViewControllerDelegate?
+    open var delegate: BaseTVCFetchRequestDelegate?
+    open var positionDelegate: UpdateListPositionDelegate?
+    open var errorDelegate: NSErrorDelegate?
+    open var controllerDelegate: UIViewControllerDelegate?
     
     // MARK: - Public Setters
     
-    public var searchText:String? {
+    open var searchText:String? {
         didSet {
             // Override in your class
         }
     }
     
-    public var predicate:NSPredicate? {
+    open var predicate:NSPredicate? {
         get {
             // Override in your class
             return nil
@@ -39,19 +39,19 @@ public class BaseTVCFetchRequestDataManger: NSObject {
 
 extension BaseTVCFetchRequestDataManger: NSFetchedResultsControllerDelegate {
     
-    public func controllerWillChangeContent(controller: NSFetchedResultsController) {
+    public func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.delegate?.controllerWillChangeContent()
     }
     
-    public func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+    public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
             self.delegate?.sectionChanged(sectionIndex, forChangeType: type)
     }
     
-    public func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         self.delegate?.itemChanged(indexPath, forChangeType: type, newIndexPath: newIndexPath)
     }
     
-    public func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.delegate?.controllerDidChangeContent()
     }
 }
@@ -63,9 +63,9 @@ This protocol is used to notify a list view that should upate the cells and sect
 */
 public protocol BaseTVCFetchRequestDelegate {
     
-    func itemChanged(indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?)
+    func itemChanged(_ indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
     
-    func sectionChanged(sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType)
+    func sectionChanged(_ sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType)
     
     func controllerWillChangeContent()
     
@@ -79,5 +79,5 @@ public protocol BaseTVCFetchRequestDelegate {
  */
 public protocol UpdateListPositionDelegate: BaseTVCFetchRequestDelegate {
    
-    func shouldScrollToRowAtIndexPath(indexPath: NSIndexPath)
+    func shouldScrollToRowAtIndexPath(_ indexPath: IndexPath)
 }

@@ -8,16 +8,16 @@
 
 import UIKit
 
-public class BaseSection: NSObject {
+open class BaseSection: NSObject {
     
     // MARK: - Public Variables
     
     /// retains all the cells
-   public var cells:Array<BaseCell>
+   open var cells:Array<BaseCell>
     /// Retains headaer data
-   public var headerData: AnyObject?
+   open var headerData: AnyObject?
     /// Retains footer data
-   public var footerData: AnyObject?
+   open var footerData: AnyObject?
     
     // MARK: - Initialize 
     

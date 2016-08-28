@@ -16,15 +16,15 @@ public protocol SelectItemDataManagerDelegate {
      - parameter indexPath: The indexPath of the cell that will be dequeued
      - parameter cellData:  The data that will be used in order to update dequeued cell
      */
-    func tableViewCell(tableView: UITableView, indexPath: NSIndexPath, cellData:NSManagedObject?) -> UITableViewCell;
+    func tableViewCell(_ tableView: UITableView, indexPath: IndexPath, cellData:NSManagedObject?) -> UITableViewCell;
 }
 
-public class BaseTableViewFRCDataManager: BaseTVCFetchRequestDataManger {
+open class BaseTableViewFRCDataManager: BaseTVCFetchRequestDataManger {
     
     // MARK: FetchResultsController
     
-    public var _fetchedResultsController: NSFetchedResultsController?
-    public var fetchedResultsController: NSFetchedResultsController {
+    open var _fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?
+    open var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> {
         assert(_fetchedResultsController == nil , "This variable should be override in sub calss")
         return NSFetchedResultsController()
     }
@@ -33,7 +33,7 @@ public class BaseTableViewFRCDataManager: BaseTVCFetchRequestDataManger {
      Use this method in ordert to get the section title
      - parameter section: The section index
      */
-    public func headerName(section:Int) -> String? {
+    open func headerName(_ section:Int) -> String? {
         let sectionInfo = self.fetchedResultsController.sections![section]
         return sectionInfo.name
     }
@@ -44,17 +44,17 @@ public class BaseTableViewFRCDataManager: BaseTVCFetchRequestDataManger {
 
 extension BaseTableViewFRCDataManager: UITableViewDataSource {
     
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return self.fetchedResultsController.sections?.count ?? 0
     }
     
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = self.fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
     }
     
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellData = self.fetchedResultsController.objectAtIndexPath(indexPath) as? NSManagedObject
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellData = self.fetchedResultsController.object(at: indexPath) as? NSManagedObject
         return self.tableViewCell(tableView, indexPath: indexPath, cellData: cellData)
     }
 }
@@ -63,7 +63,7 @@ extension BaseTableViewFRCDataManager: UITableViewDataSource {
 
 extension BaseTableViewFRCDataManager: SelectItemDataManagerDelegate {
     
-    public func tableViewCell(tableView: UITableView, indexPath: NSIndexPath, cellData: NSManagedObject?) -> UITableViewCell {
+    public func tableViewCell(_ tableView: UITableView, indexPath: IndexPath, cellData: NSManagedObject?) -> UITableViewCell {
         assert(true, "Oevrride this method in your subclass")
         return UITableViewCell()
     }

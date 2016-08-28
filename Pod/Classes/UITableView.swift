@@ -19,10 +19,10 @@ public extension UITableView {
      * :param   scrollPosition The position of scrolling
      * :param   animated Used to define if the action should be animated
      */
-    public func scrollToIndexPathWithDelay(delay:Double, indexPath: NSIndexPath, scrollPosition: UITableViewScrollPosition, animated: Bool) {
+    public func scrollToIndexPathWithDelay(_ delay:Double, indexPath: IndexPath, scrollPosition: UITableViewScrollPosition, animated: Bool) {
         let delay = delay * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue(), {
+        let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: time, execute: {
             self.scrollToIndexPath(indexPath, scrollPosition: scrollPosition, animated: animated)
         })
     }
@@ -33,18 +33,18 @@ public extension UITableView {
     * :param   scrollPosition The position of scrolling
     * :param   animated Used to define if the action should be animated
     */
-    public func scrollToIndexPath(indexPath: NSIndexPath, scrollPosition: UITableViewScrollPosition, animated: Bool) {
-        self.scrollToRowAtIndexPath(indexPath, atScrollPosition: scrollPosition, animated: animated)
-        self.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+    public func scrollToIndexPath(_ indexPath: IndexPath, scrollPosition: UITableViewScrollPosition, animated: Bool) {
+        self.scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
+        self.reloadRows(at: [indexPath], with: .automatic)
     }
     
     /**
      Use this method in order to check if some indexPath is valid 
      - parameter indexPath: The indexpath that needs to be checked
      */
-    public func indexPathIsValid(indexPath: NSIndexPath) -> Bool {
-        let section = indexPath.section
-        let row = indexPath.row
+    public func indexPathIsValid(_ indexPath: IndexPath) -> Bool {
+        let section = (indexPath as NSIndexPath).section
+        let row = (indexPath as NSIndexPath).row
         
         let lastSectionIndex = self.numberOfSections - 1
         
@@ -52,7 +52,7 @@ public extension UITableView {
         if section > lastSectionIndex {
             return false
         }
-        let rowCount = self.numberOfRowsInSection(indexPath.section) - 1
+        let rowCount = self.numberOfRows(inSection: (indexPath as NSIndexPath).section) - 1
         return row <= rowCount
     }
     
@@ -66,35 +66,35 @@ extension UITableView: BaseTVCFetchRequestDelegate {
         self.beginUpdates()
     }
     
-    public func sectionChanged(sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+    public func sectionChanged(_ sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         switch type {
-        case .Insert:
-            self.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
-        case .Delete:
-            self.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+        case .insert:
+            self.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+        case .delete:
+            self.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
         default:
             return
         }
     }
     
-    public func itemChanged(indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    public func itemChanged(_ indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
-        case .Insert:
-            self.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
-        case .Delete:
-            self.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-        case .Update:
-            self.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-        case .Move:
+        case .insert:
+            self.insertRows(at: [newIndexPath!], with: .fade)
+        case .delete:
+            self.deleteRows(at: [indexPath!], with: .fade)
+        case .update:
+            self.reloadRows(at: [indexPath!], with: .fade)
+        case .move:
             // Move sections only if needed else reload them
             if let _indexPath = indexPath,
                 let _newIndexPath = newIndexPath {
                     if self.indexPathIsValid(_indexPath) {
-                        if _indexPath.section != _newIndexPath.section && _newIndexPath.row !=  _newIndexPath.row {
-                            self.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-                            self.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+                        if (_indexPath as NSIndexPath).section != (_newIndexPath as NSIndexPath).section && (_newIndexPath as NSIndexPath).row !=  (_newIndexPath as NSIndexPath).row {
+                            self.deleteRows(at: [indexPath!], with: .fade)
+                            self.insertRows(at: [newIndexPath!], with: .fade)
                         } else  {
-                            self.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+                            self.reloadRows(at: [indexPath!], with: .fade)
                         }
                     }
             }

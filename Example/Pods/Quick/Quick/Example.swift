@@ -20,11 +20,11 @@ final public class Example: NSObject {
 
     weak internal var group: ExampleGroup?
 
-    private let internalDescription: String
-    private let closure: () -> ()
-    private let flags: FilterFlags
+    fileprivate let internalDescription: String
+    fileprivate let closure: () -> ()
+    fileprivate let flags: FilterFlags
 
-    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: () -> ()) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () -> ()) {
         self.internalDescription = description
         self.closure = closure
         self.callsite = callsite
@@ -45,8 +45,8 @@ final public class Example: NSObject {
     */
     public var name: String {
         switch group!.name {
-        case .Some(let groupName): return "\(groupName), \(description)"
-        case .None: return description
+        case .some(let groupName): return "\(groupName), \(description)"
+        case .none: return description
         }
     }
 
@@ -66,17 +66,17 @@ final public class Example: NSObject {
 
         world.exampleHooks.executeBefores(exampleMetadata)
         for before in group!.befores {
-            before(exampleMetadata: exampleMetadata)
+            before(exampleMetadata)
         }
 
         closure()
 
         for after in group!.afters {
-            after(exampleMetadata: exampleMetadata)
+            after(exampleMetadata)
         }
         world.exampleHooks.executeAfters(exampleMetadata)
 
-        ++numberOfExamplesRun
+        numberOfExamplesRun += 1
 
         if !world.isRunningAdditionalSuites && numberOfExamplesRun >= world.exampleCount {
             world.suiteHooks.executeAfters()

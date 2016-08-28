@@ -11,7 +11,7 @@ import UIKit
 public protocol DataSource: UITableViewDataSource {
     
     /// This is a method that should be override in your sublcas if you use TV
-    func tableView(tableView: UITableView, cellForIndexPath indexPath: NSIndexPath, cellData:BaseCell) -> UITableViewCell;
+    func tableView(_ tableView: UITableView, cellForIndexPath indexPath: IndexPath, cellData:BaseCell) -> UITableViewCell;
 }
 
 public protocol DataSourceDelegate {
@@ -19,11 +19,11 @@ public protocol DataSourceDelegate {
     func dataSourceUpdated()
 }
 
-public class BaseDataSource: NSObject {
+open class BaseDataSource: NSObject {
     
     /// Retains the sections in Data Source
-    public var sections:Array<BaseSection>
-    public var delegate: DataSourceDelegate?
+    open var sections:Array<BaseSection>
+    open var delegate: DataSourceDelegate?
     
     // MARK: - Initialize
     
@@ -41,9 +41,9 @@ public class BaseDataSource: NSObject {
     // MARK: - Public Methods 
     
     /// Returns CellData for some IndexPath
-    public func cellDataForIndexPath(indexPath:NSIndexPath) -> BaseCell {
-        let section = self.sections[indexPath.section]
-        return section.cells[indexPath.row]
+    open func cellDataForIndexPath(_ indexPath:IndexPath) -> BaseCell {
+        let section = self.sections[(indexPath as NSIndexPath).section]
+        return section.cells[(indexPath as NSIndexPath).row]
     }
     
 }
@@ -52,20 +52,20 @@ public class BaseDataSource: NSObject {
 
 extension BaseDataSource: UITableViewDataSource {
     
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return self.sections.count
     }
     
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.sections[section].cells.count
     }
     
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellData = self.cellDataForIndexPath(indexPath)
         return self.tableView(tableView, cellForIndexPath: indexPath, cellData: cellData)
     }
     
-    public func tableView(tableView: UITableView, cellForIndexPath indexPath: NSIndexPath, cellData:BaseCell) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForIndexPath indexPath: IndexPath, cellData:BaseCell) -> UITableViewCell {
         assert(true, "Please override this method into your sublcass")
         return UITableViewCell()
     }

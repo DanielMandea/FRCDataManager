@@ -17,7 +17,7 @@ public protocol UIViewControllerDelegate: NSObjectProtocol {
      - parameter flag:           Tells if the operation should be animated 
      - parameter completion:     Called after the operation was completed
      */
-    func shouldDismissViewController(viewController: UIViewController, animated flag: Bool, completion: (() -> Void)?)
+    func shouldDismissViewController(_ viewController: UIViewController, animated flag: Bool, completion: (() -> Void)?)
     
     /**
      Use this method in order to notify the controller that should present some view controller
@@ -25,12 +25,12 @@ public protocol UIViewControllerDelegate: NSObjectProtocol {
      - parameter flag:           Tells if the operation should be animated
      - parameter completion:     Called after the operation was completed
      */
-    func shouldPresentViewController(viewController: UIViewController, animated flag: Bool, completion: (() -> Void)?)
+    func shouldPresentViewController(_ viewController: UIViewController, animated flag: Bool, completion: (() -> Void)?)
     
     /**
      Use this method in order to notify the controller that should push some view controller
      - parameter viewController: The view controller that will be dismissed
      - parameter flag:           Tells if the operation should be animated
      */
-    func shouldPushViewController(viewController: UIViewController, animated flag: Bool)
+    func shouldPushViewController(_ viewController: UIViewController, animated flag: Bool)
 }
