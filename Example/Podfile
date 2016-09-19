@@ -7,5 +7,5 @@ end
 
 target 'FRCDataManager_Tests' do
   pod 'FRCDataManager', :path => '../'
-  pod 'Quick', '~> 0.8.0'
+  #pod 'Quick', '~> 0.8.0'
 end
