@@ -61,44 +61,60 @@ public extension UITableView {
 // MARK: - BaseTVCFetchRequestDelegate
 
 extension UITableView: BaseTVCFetchRequestDelegate {
-    
-    public func controllerWillChangeContent() {
-        self.beginUpdates()
+    public func itemChanged(_ indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case NSFetchedResultsChangeType(rawValue: 0)!:
+            // iOS 8 bug - Do nothing if we get an invalid change type.
+            break;
+        case .insert:
+            if let indexPath = newIndexPath {
+                self.insertRows(at: [indexPath], with: .automatic)
+            }
+            break
+        case .delete:
+            if let indexPath = indexPath {
+                self.deleteRows(at: [indexPath], with: .automatic)
+            }
+            
+            break
+        case .move:
+            if let indexPath = indexPath {
+                self.deleteRows(at: [indexPath], with: .automatic)
+            }
+            
+            if let newIndexPath = newIndexPath {
+                self.insertRows(at: [newIndexPath], with: .automatic)
+            }
+            
+            break
+            
+        case .update:
+            if let indexPath = indexPath {
+                self.reloadRows(at: [indexPath], with: .automatic)
+            }
+            
+            break
+        }
     }
     
     public func sectionChanged(_ sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         switch type {
         case .insert:
-            self.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+            self.insertSections(IndexSet(integer: Int(sectionIndex)), with: .automatic)
+            break
         case .delete:
-            self.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+            self.deleteSections(IndexSet(integer: Int(sectionIndex)), with: .automatic)
+            break
+        case .update:
+            self.reloadSections(IndexSet(integer: Int(sectionIndex)), with: .automatic)
+            break
         default:
-            return
+            break
         }
     }
     
-    public func itemChanged(_ indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type {
-        case .insert:
-            self.insertRows(at: [newIndexPath!], with: .fade)
-        case .delete:
-            self.deleteRows(at: [indexPath!], with: .fade)
-        case .update:
-            self.reloadRows(at: [indexPath!], with: .fade)
-        case .move:
-            // Move sections only if needed else reload them
-            if let _indexPath = indexPath,
-                let _newIndexPath = newIndexPath {
-                    if self.indexPathIsValid(_indexPath) {
-                        if (_indexPath as NSIndexPath).section != (_newIndexPath as NSIndexPath).section && (_newIndexPath as NSIndexPath).row !=  (_newIndexPath as NSIndexPath).row {
-                            self.deleteRows(at: [indexPath!], with: .fade)
-                            self.insertRows(at: [newIndexPath!], with: .fade)
-                        } else  {
-                            self.reloadRows(at: [indexPath!], with: .fade)
-                        }
-                    }
-            }
-        }
+    public func controllerWillChangeContent() {
+        self.beginUpdates()
     }
     
     public func controllerDidChangeContent() {

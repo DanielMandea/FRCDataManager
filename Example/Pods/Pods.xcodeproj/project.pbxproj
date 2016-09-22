@@ -14,7 +14,7 @@
 		476A1923642E036DE8DAB3570795C482 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782122F0BAE9B9071443217A04532B45 /* BaseCell.swift */; };
 		6F2093469F77AEBB7EE4E2B759310FF6 /* UIViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198617834D2AB8F41BBEEDDF483C8683 /* UIViewControllerDelegate.swift */; };
 		73656E264C495C52E528392D30D85706 /* Pods-FRCDataManager_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1CB1628B664962E658F4378EEBA9A /* Pods-FRCDataManager_Example-dummy.m */; };
-		7366EA2DF1DF904D12A7FF7A7B054226 /* BaseTableViewFRCDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414832ABA775F978C2635C4F895131E8 /* BaseTableViewFRCDataManager.swift */; };
+		7366EA2DF1DF904D12A7FF7A7B054226 /* BaseFetchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414832ABA775F978C2635C4F895131E8 /* BaseFetchResultsController.swift */; };
 		777C496124E9B060080D5DFE5D106F68 /* BaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D629FCF72AAE03033CF8F55EC253E9 /* BaseDataSource.swift */; };
 		8B04171A09F45C5A53CD7F8137414F3F /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E380DE03E75C337C52B2C003561EC39 /* UITableView.swift */; };
 		A8DEC38AF5852D65BA88C7E30896FD49 /* FRCDataManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8016D790859594E6E41846E537E19E25 /* FRCDataManager-dummy.m */; };
@@ -22,7 +22,7 @@
 		ABDBA372F12F5B238B016AA6214ACA99 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		BE15903EA8DD18AAD2035ED1F13FEBD9 /* Pods-FRCDataManager_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EB170A5F5B8DE2A2E34FF899E3615A20 /* Pods-FRCDataManager_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C113149826069845B383BA655321C85A /* NSErrorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E0E26D6868AF0339B16C2568016B1 /* NSErrorDelegate.swift */; };
-		C9368B25FB1C3EC707135202A3ECC8E8 /* BaseTVCFetchRequestDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA1B70B2F6AA45C8507BEAE8C6AC1D /* BaseTVCFetchRequestDataManger.swift */; };
+		C9368B25FB1C3EC707135202A3ECC8E8 /* BaseFetchRequestDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA1B70B2F6AA45C8507BEAE8C6AC1D /* BaseFetchRequestDataManger.swift */; };
 		D24F2109D402D3F57E3C22AA2C2AA4A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		D5018D74EACDD0B3F57CF124D1ABDE29 /* Pods-FRCDataManager_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F481F35124CDCA00AFC9217781B878 /* Pods-FRCDataManager_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E181ECC2F5C9F1D48375B889B5838B82 /* FRCDataManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19D577472B18327682A7F3A41EF76F4D /* FRCDataManager.bundle */; };
@@ -70,7 +70,7 @@
 		39937868550DABA1AB672DBFBA82E90B /* Pods-FRCDataManager_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FRCDataManager_Tests-resources.sh"; sourceTree = "<group>"; };
 		3E380DE03E75C337C52B2C003561EC39 /* UITableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		3F9C4A46DCA042D9BE6C0CE2B1092735 /* FRCDataManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FRCDataManager-prefix.pch"; sourceTree = "<group>"; };
-		414832ABA775F978C2635C4F895131E8 /* BaseTableViewFRCDataManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseTableViewFRCDataManager.swift; sourceTree = "<group>"; };
+		414832ABA775F978C2635C4F895131E8 /* BaseFetchResultsController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseFetchResultsController.swift; sourceTree = "<group>"; };
 		4B42AD1FF0D4863A23E0F565EE524CFA /* Pods_FRCDataManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FRCDataManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DC1CB1628B664962E658F4378EEBA9A /* Pods-FRCDataManager_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FRCDataManager_Example-dummy.m"; sourceTree = "<group>"; };
 		53D629FCF72AAE03033CF8F55EC253E9 /* BaseDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseDataSource.swift; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 		8B9351B7AC9254C362C1AC02892980C9 /* Pods-FRCDataManager_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FRCDataManager_Example-frameworks.sh"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9740B79A406E6CC1B99E5617B0723684 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9CFA1B70B2F6AA45C8507BEAE8C6AC1D /* BaseTVCFetchRequestDataManger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseTVCFetchRequestDataManger.swift; sourceTree = "<group>"; };
+		9CFA1B70B2F6AA45C8507BEAE8C6AC1D /* BaseFetchRequestDataManger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseFetchRequestDataManger.swift; sourceTree = "<group>"; };
 		B3C097C8D56452802B38A5E53F8CE6C6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD6C82B768C28AF0020076D5EE96FEF6 /* Pods-FRCDataManager_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FRCDataManager_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -147,8 +147,8 @@
 				782122F0BAE9B9071443217A04532B45 /* BaseCell.swift */,
 				53D629FCF72AAE03033CF8F55EC253E9 /* BaseDataSource.swift */,
 				82230FD66C521D9B4D40DF33D4F9B67D /* BaseSection.swift */,
-				414832ABA775F978C2635C4F895131E8 /* BaseTableViewFRCDataManager.swift */,
-				9CFA1B70B2F6AA45C8507BEAE8C6AC1D /* BaseTVCFetchRequestDataManger.swift */,
+				414832ABA775F978C2635C4F895131E8 /* BaseFetchResultsController.swift */,
+				9CFA1B70B2F6AA45C8507BEAE8C6AC1D /* BaseFetchRequestDataManger.swift */,
 				5BB6BE9ADE576BEFA01282E821ABA5F0 /* ListDetailsDelegate.swift */,
 				1A2E0E26D6868AF0339B16C2568016B1 /* NSErrorDelegate.swift */,
 				3E380DE03E75C337C52B2C003561EC39 /* UITableView.swift */,
@@ -444,8 +444,8 @@
 				476A1923642E036DE8DAB3570795C482 /* BaseCell.swift in Sources */,
 				777C496124E9B060080D5DFE5D106F68 /* BaseDataSource.swift in Sources */,
 				005193A79C89C72E6A0D3B928ADD03D3 /* BaseSection.swift in Sources */,
-				7366EA2DF1DF904D12A7FF7A7B054226 /* BaseTableViewFRCDataManager.swift in Sources */,
-				C9368B25FB1C3EC707135202A3ECC8E8 /* BaseTVCFetchRequestDataManger.swift in Sources */,
+				7366EA2DF1DF904D12A7FF7A7B054226 /* BaseFetchResultsController.swift in Sources */,
+				C9368B25FB1C3EC707135202A3ECC8E8 /* BaseFetchRequestDataManger.swift in Sources */,
 				A8DEC38AF5852D65BA88C7E30896FD49 /* FRCDataManager-dummy.m in Sources */,
 				027E2E23214B9BA9A929281C0A90451F /* ListDetailsDelegate.swift in Sources */,
 				C113149826069845B383BA655321C85A /* NSErrorDelegate.swift in Sources */,

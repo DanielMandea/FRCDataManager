@@ -15,12 +15,12 @@ open class BaseCell: NSObject {
     /// Cell indentifier
     open var identifier:String
     /// The data that will populate the cell
-    open var data: AnyObject?
+    open var data: Any?
     
     // MARK: - Initialize 
     
     /// Use this designated initialiser if both identifer and data are needed
-    public init(identifier:String, data: AnyObject?) {
+    public init(identifier:String, data: Any?) {
         self.identifier = identifier
         self.data = data
         super.init()
