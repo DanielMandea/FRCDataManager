@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-public protocol BaseFetchResultsController {
+public protocol BaseFetchResultsController: class {
     
     associatedtype ManagedObject:NSFetchRequestResult
 
