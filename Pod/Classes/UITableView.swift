@@ -112,7 +112,7 @@ extension UITableView: BaseTVCFetchRequestDelegate {
             break
         }
     }
-    
+
     public func controllerWillChangeContent() {
         self.beginUpdates()
     }
