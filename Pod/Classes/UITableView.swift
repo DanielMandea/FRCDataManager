@@ -79,25 +79,37 @@ extension UITableView: BaseTVCFetchRequestDelegate {
     
     public func itemChanged(indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
+        case NSFetchedResultsChangeType(rawValue: 0)!:
+            // iOS 8 bug - Do nothing if we get an invalid change type.
+            break;
         case .Insert:
-            self.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
-        case .Delete:
-            self.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-        case .Update:
-            self.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-        case .Move:
-            // Move sections only if needed else reload them
-            if let _indexPath = indexPath,
-                let _newIndexPath = newIndexPath {
-                    if self.indexPathIsValid(_indexPath) {
-                        if _indexPath.section != _newIndexPath.section && _newIndexPath.row !=  _newIndexPath.row {
-                            self.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-                            self.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
-                        } else  {
-                            self.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-                        }
-                    }
+            if let indexPath = newIndexPath {
+                self.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
             }
+            break
+        case .Delete:
+            if let indexPath = indexPath {
+                self.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            }
+            
+            break
+        case .Move:
+            if let indexPath = indexPath {
+                self.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            }
+            
+            if let newIndexPath = newIndexPath {
+                self.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
+            }
+            
+            break
+            
+        case .Update:
+            if let indexPath = indexPath {
+                self.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            }
+            
+            break
         }
     }
     
