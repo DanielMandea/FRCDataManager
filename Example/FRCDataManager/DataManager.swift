@@ -10,8 +10,4 @@ import UIKit
 import FRCDataManager
 import CoreData
 
-class DataManager: BaseTableViewFRCDataManager {
-    
-    
 
-}

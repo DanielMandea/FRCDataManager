@@ -33,6 +33,44 @@ open class BaseTVCFetchRequestDataManger: NSObject {
             return nil
         }
     }
+    
+    // MARK: - TableViewDataSource
+    
+    
+    
+}
+
+extension BaseTVCFetchRequestDataManger: TableViewDataSource {
+
+    public func _numberOfSections(in tableView: UITableView) -> Int {
+        return 0
+    }
+    
+    public func _tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+
+    public func _tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        return UITableViewCell()
+    }
+    
+}
+
+// MARK: - UITableViewDataSource 
+
+extension BaseTVCFetchRequestDataManger: UITableViewDataSource {
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return _tableView(tableView, numberOfRowsInSection: section)
+    }
+   
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return _tableView(tableView, cellForRowAt: indexPath)
+    }
+    
+    public func numberOfSections(in tableView: UITableView) -> Int  {
+        return _numberOfSections(in: tableView)
+    }
 }
 
 // MARK: - NSFetchedResultsControllerDelegate
