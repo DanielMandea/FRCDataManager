@@ -33,7 +33,6 @@ open class BaseTVCFetchRequestDataManger: NSObject {
             return nil
         }
     }
-    
 }
 
 // MARK: - UITableViewDataSource 
