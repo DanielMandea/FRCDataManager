@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import UIKit
 
-open class BaseTVCFetchRequestDataManger: NSObject {
+open class BaseTVCFetchRequestDataManger {
     
     // MARK: - Public Setters 
     
