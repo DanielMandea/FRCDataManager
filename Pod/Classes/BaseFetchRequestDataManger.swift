@@ -34,31 +34,11 @@ open class BaseTVCFetchRequestDataManger: NSObject {
         }
     }
     
-    // MARK: - TableViewDataSource
-    
-    
-    
-}
-
-extension BaseTVCFetchRequestDataManger: TableViewDataSource {
-
-    public func _numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-    
-    public func _tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-
-    public func _tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        return UITableViewCell()
-    }
-    
 }
 
 // MARK: - UITableViewDataSource 
 
-extension BaseTVCFetchRequestDataManger: UITableViewDataSource {
+extension UITableViewDataSource where Self: TableViewDataSource  {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return _tableView(tableView, numberOfRowsInSection: section)
