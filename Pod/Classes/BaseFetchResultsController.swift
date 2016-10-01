@@ -29,7 +29,7 @@ public protocol BaseFetchResultsController: class {
 
 // MARK: - TableViewDataSource
 
-public protocol TableViewDataSource : class {
+public protocol TableViewDataSource {
     
     @available(iOS 2.0, *)
     func _numberOfSections(in tableView: UITableView) -> Int // Default is 1 if not implemented

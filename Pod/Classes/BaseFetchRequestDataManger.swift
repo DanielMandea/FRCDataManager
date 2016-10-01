@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import UIKit
 
-open class BaseTVCFetchRequestDataManger {
+open class BaseTVCFetchRequestDataManger: NSObject {
     
     // MARK: - Public Setters 
     
@@ -37,20 +37,23 @@ open class BaseTVCFetchRequestDataManger {
 
 // MARK: - UITableViewDataSource 
 
-extension UITableViewDataSource where Self: TableViewDataSource  {
-    
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return _tableView(tableView, numberOfRowsInSection: section)
-    }
-   
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return _tableView(tableView, cellForRowAt: indexPath)
-    }
-    
-    public func numberOfSections(in tableView: UITableView) -> Int  {
-        return _numberOfSections(in: tableView)
-    }
-}
+// TODO: - Not supported Objc - Swift protocol issues
+
+//
+//extension UITableViewDataSource where Self: TableViewDataSource  {
+//    
+//    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//       return _tableView(tableView, numberOfRowsInSection: section)
+//    }
+//   
+//    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        return _tableView(tableView, cellForRowAt: indexPath)
+//    }
+//    
+//    public func numberOfSections(in tableView: UITableView) -> Int  {
+//        return _numberOfSections(in: tableView)
+//    }
+//}
 
 // MARK: - NSFetchedResultsControllerDelegate
 
