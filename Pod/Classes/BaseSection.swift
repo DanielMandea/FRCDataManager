@@ -8,31 +8,31 @@
 
 import UIKit
 
-public class BaseSection: NSObject {
+open class BaseSection: NSObject {
     
     // MARK: - Public Variables
     
     /// retains all the cells
-   public var cells:Array<BaseCell>
+   open var cells:Array<BaseCell>
     /// Retains headaer data
-   public var headerData: AnyObject?
+   open var headerData: Any?
     /// Retains footer data
-   public var footerData: AnyObject?
+   open var footerData: Any?
     
     // MARK: - Initialize 
     
-    public init(cells:Array<BaseCell>, headerData:AnyObject?, footerData:AnyObject?) {
+    public init(cells:Array<BaseCell>, headerData:Any?, footerData:Any?) {
         self.cells = cells
         self.headerData = headerData
         self.footerData = footerData
         super.init()
     }
     
-    public convenience init(cells: Array<BaseCell>, footerData:AnyObject?) {
+    public convenience init(cells: Array<BaseCell>, footerData:Any?) {
         self.init(cells:cells, headerData: nil, footerData: footerData)
     }
     
-    public convenience init(cells: Array<BaseCell>, headerData:AnyObject?) {
+    public convenience init(cells: Array<BaseCell>, headerData:Any?) {
         self.init(cells:cells, headerData: headerData, footerData: nil)
     }
     
@@ -40,11 +40,11 @@ public class BaseSection: NSObject {
         self.init(cells:[], headerData: nil, footerData: nil)
     }
     
-    public convenience init(headerData: AnyObject?) {
+    public convenience init(headerData: Any?) {
         self.init(cells:[], headerData: headerData, footerData: nil)
     }
     
-    public convenience init(footerData: AnyObject?) {
+    public convenience init(footerData: Any?) {
         self.init(cells:[], headerData: nil, footerData: footerData)
     }
 }

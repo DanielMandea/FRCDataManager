@@ -8,19 +8,19 @@
 
 import UIKit
 
-public class BaseCell: NSObject {
+open class BaseCell: NSObject {
     
     // MARK: - Public variables
     
     /// Cell indentifier
-    public var identifier:String
+    open var identifier:String
     /// The data that will populate the cell
-    public var data: AnyObject?
+    open var data: Any?
     
     // MARK: - Initialize 
     
     /// Use this designated initialiser if both identifer and data are needed
-    public init(identifier:String, data: AnyObject?) {
+    public init(identifier:String, data: Any?) {
         self.identifier = identifier
         self.data = data
         super.init()

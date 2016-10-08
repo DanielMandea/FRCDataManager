@@ -1,16 +1,16 @@
 {
   "name": "FRCDataManager",
-  "version": "0.1.0",
-  "summary": "A short description of FRCDataManager.",
-  "description": "This pod includes the base classes for the kms project.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/FRCDataManager",
+  "version": "0.1.6",
+  "summary": "This is a helper library for NSFetchResultsController",
+  "description": "This pod is useful when using NSFetchresultsController, basically is an wrapper that splits the responsability of DataManager and Controller. Please Extend one of FRC Data Manger Classes that suits better for your needs.",
+  "homepage": "https://github.com/DanielMandea/FRCDataManager.git",
   "license": "MIT",
   "authors": {
     "Mandea Daniel": "daniel.mandea@yahoo.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/FRCDataManager.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/DanielMandea/FRCDataManager.git",
+    "tag": "0.1.6"
   },
   "platforms": {
     "ios": "8.0"

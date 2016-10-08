@@ -19,10 +19,10 @@ public extension UITableView {
      * :param   scrollPosition The position of scrolling
      * :param   animated Used to define if the action should be animated
      */
-    public func scrollToIndexPathWithDelay(delay:Double, indexPath: NSIndexPath, scrollPosition: UITableViewScrollPosition, animated: Bool) {
+    public func scrollToIndexPathWithDelay(_ delay:Double, indexPath: IndexPath, scrollPosition: UITableViewScrollPosition, animated: Bool) {
         let delay = delay * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue(), {
+        let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: time, execute: {
             self.scrollToIndexPath(indexPath, scrollPosition: scrollPosition, animated: animated)
         })
     }
@@ -33,18 +33,18 @@ public extension UITableView {
     * :param   scrollPosition The position of scrolling
     * :param   animated Used to define if the action should be animated
     */
-    public func scrollToIndexPath(indexPath: NSIndexPath, scrollPosition: UITableViewScrollPosition, animated: Bool) {
-        self.scrollToRowAtIndexPath(indexPath, atScrollPosition: scrollPosition, animated: animated)
-        self.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+    public func scrollToIndexPath(_ indexPath: IndexPath, scrollPosition: UITableViewScrollPosition, animated: Bool) {
+        self.scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
+        self.reloadRows(at: [indexPath], with: .automatic)
     }
     
     /**
      Use this method in order to check if some indexPath is valid 
      - parameter indexPath: The indexpath that needs to be checked
      */
-    public func indexPathIsValid(indexPath: NSIndexPath) -> Bool {
-        let section = indexPath.section
-        let row = indexPath.row
+    public func indexPathIsValid(_ indexPath: IndexPath) -> Bool {
+        let section = (indexPath as NSIndexPath).section
+        let row = (indexPath as NSIndexPath).row
         
         let lastSectionIndex = self.numberOfSections - 1
         
@@ -52,7 +52,7 @@ public extension UITableView {
         if section > lastSectionIndex {
             return false
         }
-        let rowCount = self.numberOfRowsInSection(indexPath.section) - 1
+        let rowCount = self.numberOfRows(inSection: (indexPath as NSIndexPath).section) - 1
         return row <= rowCount
     }
     
@@ -61,56 +61,60 @@ public extension UITableView {
 // MARK: - BaseTVCFetchRequestDelegate
 
 extension UITableView: BaseTVCFetchRequestDelegate {
-    
-    public func controllerWillChangeContent() {
-        self.beginUpdates()
-    }
-    
-    public func sectionChanged(sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
-        switch type {
-        case .Insert:
-            self.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
-        case .Delete:
-            self.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
-        default:
-            return
-        }
-    }
-    
-    public func itemChanged(indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    public func itemChanged(_ indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case NSFetchedResultsChangeType(rawValue: 0)!:
             // iOS 8 bug - Do nothing if we get an invalid change type.
             break;
-        case .Insert:
+        case .insert:
             if let indexPath = newIndexPath {
-                self.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                self.insertRows(at: [indexPath], with: .automatic)
             }
             break
-        case .Delete:
+        case .delete:
             if let indexPath = indexPath {
-                self.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                self.deleteRows(at: [indexPath], with: .automatic)
             }
             
             break
-        case .Move:
+        case .move:
             if let indexPath = indexPath {
-                self.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                self.deleteRows(at: [indexPath], with: .automatic)
             }
             
             if let newIndexPath = newIndexPath {
-                self.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
+                self.insertRows(at: [newIndexPath], with: .automatic)
             }
             
             break
             
-        case .Update:
+        case .update:
             if let indexPath = indexPath {
-                self.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                self.reloadRows(at: [indexPath], with: .automatic)
             }
             
             break
         }
+    }
+    
+    public func sectionChanged(_ sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            self.insertSections(IndexSet(integer: Int(sectionIndex)), with: .automatic)
+            break
+        case .delete:
+            self.deleteSections(IndexSet(integer: Int(sectionIndex)), with: .automatic)
+            break
+        case .update:
+            self.reloadSections(IndexSet(integer: Int(sectionIndex)), with: .automatic)
+            break
+        default:
+            break
+        }
+    }
+
+    public func controllerWillChangeContent() {
+        self.beginUpdates()
     }
     
     public func controllerDidChangeContent() {
