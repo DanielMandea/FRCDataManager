@@ -24,10 +24,8 @@ class TopRatedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Setup 
-        dataManager.queue = ProceduresManager.sharedManager.queue
         dataManager.delegate = tableView
         tableView.dataSource = dataManager
-        dataManager.errorDelegate = self
     }
 }
 
@@ -73,7 +71,6 @@ class TopRatedDataManager: BaseTVCFetchRequestDataManger, BaseFetchResultsContro
             // Show error
             let nserror = error as NSError
             print("Unresolved error \(nserror), \(nserror.userInfo)")
-            self.errorDelegate?.errorEncountered(nserror)
         }
         
         return _fetchedResultsController!
@@ -109,10 +106,11 @@ extension TopRatedDataManager: UITableViewDataSource {
 
 ```
 
-Provides support for simple and advances DataSource that helps when a decoupled echosystem is needed.
+Provides support for simple and advanced DataSources, helps when a decoupled echosystem is needed.
 
+Example:
 ```swift
-
+@to be provided
 
 ```
 
