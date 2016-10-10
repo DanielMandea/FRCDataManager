@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "FRCDataManager"
-  s.version          = "0.1.6"
+  s.version          = "0.2.0"
   s.summary          = "This is a helper library for NSFetchResultsController"
   s.description      = <<-DESC
     This pod is useful when using NSFetchresultsController, basically is an wrapper that splits the responsability of DataManager and Controller. Please Extend one of FRC Data Manger Classes that suits better for your needs.
@@ -16,9 +16,9 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'FRCDataManager' => ['Pod/Assets/*.png']
-  }
+#s.resource_bundles = {
+#   'FRCDataManager' => ['Pod/Assets/*.png']
+# }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
