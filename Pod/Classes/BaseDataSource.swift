@@ -11,7 +11,7 @@ import UIKit
 public protocol DataSource: UITableViewDataSource {
     
     /// This is a method that should be override in your sublcas if you use TV
-    func tableView(_ tableView: UITableView, cellForIndexPath indexPath: IndexPath, cellData:BaseCell) -> UITableViewCell;
+   func tableView(_ tableView: UITableView, cellForIndexPath indexPath: IndexPath, cellData:BaseCell) -> UITableViewCell;
 }
 
 public protocol DataSourceDelegate {
@@ -65,7 +65,7 @@ extension BaseDataSource: UITableViewDataSource {
         return self.tableView(tableView, cellForIndexPath: indexPath, cellData: cellData)
     }
     
-    public func tableView(_ tableView: UITableView, cellForIndexPath indexPath: IndexPath, cellData:BaseCell) -> UITableViewCell {
+    open func tableView(_ tableView: UITableView, cellForIndexPath indexPath: IndexPath, cellData:BaseCell) -> UITableViewCell {
         assert(true, "Please override this method into your sublcass")
         return UITableViewCell()
     }
