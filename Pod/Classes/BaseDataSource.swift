@@ -70,3 +70,26 @@ extension BaseDataSource: UITableViewDataSource {
         return UITableViewCell()
     }
 }
+
+// MARK: - UICollectionViewDataSource
+
+extension BaseDataSource: UICollectionViewDataSource {
+    
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return self.sections.count
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.sections[section].cells.count
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellData = self.cellDataForIndexPath(indexPath)
+        return self.collectionView(collectionView, cellForIndexPath: indexPath, cellData: cellData)
+    }
+
+    open func collectionView(_ collectionView: UICollectionView, cellForIndexPath indexPath: IndexPath, cellData:BaseCell) -> UICollectionViewCell {
+        assert(true, "Please override this method into your sublcass")
+        return UICollectionViewCell()
+    }
+}
