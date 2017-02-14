@@ -81,7 +81,7 @@ extension BaseTVCFetchRequestDataManger: NSFetchedResultsControllerDelegate {
 /**
 This protocol is used to notify a list view that should upate the cells and sections 
 */
-public protocol BaseTVCFetchRequestDelegate {
+public protocol BaseTVCFetchRequestDelegate: class {
     
     func itemChanged(_ indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
     
