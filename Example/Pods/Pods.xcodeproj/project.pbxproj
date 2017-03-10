@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		005193A79C89C72E6A0D3B928ADD03D3 /* BaseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82230FD66C521D9B4D40DF33D4F9B67D /* BaseSection.swift */; };
-		027E2E23214B9BA9A929281C0A90451F /* ListDetailsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6BE9ADE576BEFA01282E821ABA5F0 /* ListDetailsDelegate.swift */; };
 		21946FE5AF1F876339BA05F1231D3624 /* Pods-FRCDataManager_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF008B4C7A13D4EE1A22810E3A98DB /* Pods-FRCDataManager_Tests-dummy.m */; };
 		40D7DCEA6977333F89B33C003C24162B /* FRCDataManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E7EB3075A1EDBE75EFB594251A80E67 /* FRCDataManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		476A1923642E036DE8DAB3570795C482 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782122F0BAE9B9071443217A04532B45 /* BaseCell.swift */; };
@@ -58,9 +57,9 @@
 		11C499A9CE6254B20D1733CB6C7CADCC /* Pods-FRCDataManager_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FRCDataManager_Example.modulemap"; sourceTree = "<group>"; };
 		139A2ED63C58B1173A921EE1C92A6ACD /* Pods-FRCDataManager_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FRCDataManager_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		16F481F35124CDCA00AFC9217781B878 /* Pods-FRCDataManager_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FRCDataManager_Example-umbrella.h"; sourceTree = "<group>"; };
-		198617834D2AB8F41BBEEDDF483C8683 /* UIViewControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewControllerDelegate.swift; sourceTree = "<group>"; };
+		198617834D2AB8F41BBEEDDF483C8683 /* UIViewControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = UIViewControllerDelegate.swift; sourceTree = "<group>"; tabWidth = 2; };
 		19D577472B18327682A7F3A41EF76F4D /* FRCDataManager.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FRCDataManager.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A2E0E26D6868AF0339B16C2568016B1 /* NSErrorDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NSErrorDelegate.swift; sourceTree = "<group>"; };
+		1A2E0E26D6868AF0339B16C2568016B1 /* NSErrorDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = NSErrorDelegate.swift; sourceTree = "<group>"; tabWidth = 2; };
 		1A4C328106CFB6545DCEFE943CBA4188 /* Pods-FRCDataManager_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FRCDataManager_Example-resources.sh"; sourceTree = "<group>"; };
 		265F2800134277185556A1BB9C2C9BC1 /* Pods-FRCDataManager_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FRCDataManager_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3203997D4C494D663F0DEFA64327A9D3 /* FRCDataManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FRCDataManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,25 +67,24 @@
 		35C6C7794AF3866965C36B4822C2F1D7 /* Pods-FRCDataManager_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FRCDataManager_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		37BFD7E2331EC6D4E8DAA7B0C2C56ADE /* Pods-FRCDataManager_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FRCDataManager_Example.release.xcconfig"; sourceTree = "<group>"; };
 		39937868550DABA1AB672DBFBA82E90B /* Pods-FRCDataManager_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FRCDataManager_Tests-resources.sh"; sourceTree = "<group>"; };
-		3E380DE03E75C337C52B2C003561EC39 /* UITableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		3E380DE03E75C337C52B2C003561EC39 /* UITableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; tabWidth = 2; };
 		3F9C4A46DCA042D9BE6C0CE2B1092735 /* FRCDataManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FRCDataManager-prefix.pch"; sourceTree = "<group>"; };
-		414832ABA775F978C2635C4F895131E8 /* BaseFetchResultsController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseFetchResultsController.swift; sourceTree = "<group>"; };
+		414832ABA775F978C2635C4F895131E8 /* BaseFetchResultsController.swift */ = {isa = PBXFileReference; includeInIndex = 1; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = BaseFetchResultsController.swift; sourceTree = "<group>"; tabWidth = 2; };
 		4B42AD1FF0D4863A23E0F565EE524CFA /* Pods_FRCDataManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FRCDataManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DC1CB1628B664962E658F4378EEBA9A /* Pods-FRCDataManager_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FRCDataManager_Example-dummy.m"; sourceTree = "<group>"; };
-		53D629FCF72AAE03033CF8F55EC253E9 /* BaseDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseDataSource.swift; sourceTree = "<group>"; };
+		53D629FCF72AAE03033CF8F55EC253E9 /* BaseDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = BaseDataSource.swift; sourceTree = "<group>"; tabWidth = 2; };
 		58114A40E54123829581AC809C20BE72 /* Pods-FRCDataManager_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FRCDataManager_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		5BB6BE9ADE576BEFA01282E821ABA5F0 /* ListDetailsDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListDetailsDelegate.swift; sourceTree = "<group>"; };
 		5E7EB3075A1EDBE75EFB594251A80E67 /* FRCDataManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FRCDataManager-umbrella.h"; sourceTree = "<group>"; };
 		66440A28E6EBD999B326C5E5035154D3 /* Pods-FRCDataManager_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FRCDataManager_Tests.modulemap"; sourceTree = "<group>"; };
 		6EBF008B4C7A13D4EE1A22810E3A98DB /* Pods-FRCDataManager_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FRCDataManager_Tests-dummy.m"; sourceTree = "<group>"; };
-		782122F0BAE9B9071443217A04532B45 /* BaseCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		782122F0BAE9B9071443217A04532B45 /* BaseCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; tabWidth = 2; };
 		8016D790859594E6E41846E537E19E25 /* FRCDataManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FRCDataManager-dummy.m"; sourceTree = "<group>"; };
 		81D46619A534E87F778E6B2D815D98EE /* Pods-FRCDataManager_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FRCDataManager_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		82230FD66C521D9B4D40DF33D4F9B67D /* BaseSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseSection.swift; sourceTree = "<group>"; };
+		82230FD66C521D9B4D40DF33D4F9B67D /* BaseSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = BaseSection.swift; sourceTree = "<group>"; tabWidth = 2; };
 		8B9351B7AC9254C362C1AC02892980C9 /* Pods-FRCDataManager_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FRCDataManager_Example-frameworks.sh"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9740B79A406E6CC1B99E5617B0723684 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9CFA1B70B2F6AA45C8507BEAE8C6AC1D /* BaseFetchRequestDataManger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseFetchRequestDataManger.swift; sourceTree = "<group>"; };
+		9CFA1B70B2F6AA45C8507BEAE8C6AC1D /* BaseFetchRequestDataManger.swift */ = {isa = PBXFileReference; includeInIndex = 1; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = BaseFetchRequestDataManger.swift; sourceTree = "<group>"; tabWidth = 2; };
 		B3C097C8D56452802B38A5E53F8CE6C6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD6C82B768C28AF0020076D5EE96FEF6 /* Pods-FRCDataManager_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FRCDataManager_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -149,7 +147,6 @@
 				82230FD66C521D9B4D40DF33D4F9B67D /* BaseSection.swift */,
 				414832ABA775F978C2635C4F895131E8 /* BaseFetchResultsController.swift */,
 				9CFA1B70B2F6AA45C8507BEAE8C6AC1D /* BaseFetchRequestDataManger.swift */,
-				5BB6BE9ADE576BEFA01282E821ABA5F0 /* ListDetailsDelegate.swift */,
 				1A2E0E26D6868AF0339B16C2568016B1 /* NSErrorDelegate.swift */,
 				3E380DE03E75C337C52B2C003561EC39 /* UITableView.swift */,
 				198617834D2AB8F41BBEEDDF483C8683 /* UIViewControllerDelegate.swift */,
@@ -461,7 +458,6 @@
 				7366EA2DF1DF904D12A7FF7A7B054226 /* BaseFetchResultsController.swift in Sources */,
 				C9368B25FB1C3EC707135202A3ECC8E8 /* BaseFetchRequestDataManger.swift in Sources */,
 				A8DEC38AF5852D65BA88C7E30896FD49 /* FRCDataManager-dummy.m in Sources */,
-				027E2E23214B9BA9A929281C0A90451F /* ListDetailsDelegate.swift in Sources */,
 				C113149826069845B383BA655321C85A /* NSErrorDelegate.swift in Sources */,
 				8B04171A09F45C5A53CD7F8137414F3F /* UITableView.swift in Sources */,
 				6F2093469F77AEBB7EE4E2B759310FF6 /* UIViewControllerDelegate.swift in Sources */,
