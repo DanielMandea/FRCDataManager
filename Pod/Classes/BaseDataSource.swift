@@ -46,6 +46,14 @@ open class BaseDataSource: NSObject {
         return section.cells[(indexPath as NSIndexPath).row]
     }
     
+    /***
+     This method should be called in order to configure table view cell with related data
+     - parameter cell:      The table view that will dequeue the cell
+     - parameter indexPath: The indexPath of the cell that should be configured
+     */
+    open func configure(cell: UITableViewCell, for indexPath: IndexPath) {
+        assert(true, "Please override this method into your sublcass in order to configure your cell")
+    }
 }
 
 // MARK: - DataSourceDelegate

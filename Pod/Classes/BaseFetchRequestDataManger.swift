@@ -14,10 +14,10 @@ open class BaseTVCFetchRequestDataManger: NSObject {
     
     // MARK: - Public Setters 
     
-    open var delegate: BaseTVCFetchRequestDelegate?
-    open var positionDelegate: UpdateListPositionDelegate?
-    open var errorDelegate: NSErrorDelegate?
-    open var controllerDelegate: UIViewControllerDelegate?
+    open weak var delegate: BaseTVCFetchRequestDelegate?
+    open weak var positionDelegate: UpdateListPositionDelegate?
+    open weak var errorDelegate: NSErrorDelegate?
+    open weak var controllerDelegate: UIViewControllerDelegate?
     
     // MARK: - Public Setters
     
@@ -34,26 +34,6 @@ open class BaseTVCFetchRequestDataManger: NSObject {
         }
     }
 }
-
-// MARK: - UITableViewDataSource 
-
-// TODO: - Not supported Objc - Swift protocol issues
-
-//
-//extension UITableViewDataSource where Self: TableViewDataSource  {
-//    
-//    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//       return _tableView(tableView, numberOfRowsInSection: section)
-//    }
-//   
-//    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        return _tableView(tableView, cellForRowAt: indexPath)
-//    }
-//    
-//    public func numberOfSections(in tableView: UITableView) -> Int  {
-//        return _numberOfSections(in: tableView)
-//    }
-//}
 
 // MARK: - NSFetchedResultsControllerDelegate
 
