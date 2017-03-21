@@ -2,12 +2,11 @@
 //  ViewController.swift
 //  FRCDataManager
 //
-//  Created by Mandea Daniel on 03/22/2016.
-//  Copyright (c) 2016 Mandea Daniel. All rights reserved.
+//  Created by DanielMandea on 03/21/2017.
+//  Copyright (c) 2017 DanielMandea. All rights reserved.
 //
 
 import UIKit
-import FRCDataManager
 
 class ViewController: UIViewController {
 

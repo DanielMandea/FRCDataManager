@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## FRCDataManager
 
-Copyright (c) 2016 Mandea Daniel <daniel.mandea@yahoo.com>
+Copyright (c) 2017 DanielMandea <daniel.mandea@ro.ibm.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

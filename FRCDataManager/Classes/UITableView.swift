@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 import CoreData
 
 public extension UITableView {
@@ -58,10 +57,31 @@ public extension UITableView {
   
 }
 
-// MARK: - BaseTVCFetchRequestDelegate
+// MARK: - NSFetchedResultsControllerDelegate
 
-extension UITableView: FetchRequestDelegate {
-  public func itemChanged(_ indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+extension UITableView: NSFetchedResultsControllerDelegate {
+  
+  public func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    self.beginUpdates()
+  }
+  
+  public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+    switch type {
+    case .insert:
+      self.insertSections(IndexSet(integer: Int(sectionIndex)), with: .automatic)
+      break
+    case .delete:
+      self.deleteSections(IndexSet(integer: Int(sectionIndex)), with: .automatic)
+      break
+    case .update:
+      self.reloadSections(IndexSet(integer: Int(sectionIndex)), with: .automatic)
+      break
+    default:
+      break
+    }
+  }
+  
+  public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
     switch type {
     case NSFetchedResultsChangeType(rawValue: 0)!:
       // iOS 8 bug - Do nothing if we get an invalid change type.
@@ -97,31 +117,22 @@ extension UITableView: FetchRequestDelegate {
     }
   }
   
-  public func sectionChanged(_ sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
-    switch type {
-    case .insert:
-      self.insertSections(IndexSet(integer: Int(sectionIndex)), with: .automatic)
-      break
-    case .delete:
-      self.deleteSections(IndexSet(integer: Int(sectionIndex)), with: .automatic)
-      break
-    case .update:
-      self.reloadSections(IndexSet(integer: Int(sectionIndex)), with: .automatic)
-      break
-    default:
-      break
-    }
-  }
-  
-  public func controllerWillChangeContent() {
-    self.beginUpdates()
-  }
-  
-  public func controllerDidChangeContent() {
+  public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     self.endUpdates()
   }
   
-  public func controllerShouldReloadData() {
+  
+}
+
+// MARK: - FetchRequestDelegate
+
+extension UITableView: FetchRequestDelegate {
+  
+  public func shouldReload() {
     self.reloadData()
+  }
+ 
+  public func scroll(at indexPath: IndexPath){
+    self.scrollToRow(at: indexPath, at: UITableViewScrollPosition.middle, animated: true)
   }
 }

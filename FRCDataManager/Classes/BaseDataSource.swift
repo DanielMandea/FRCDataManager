@@ -6,6 +6,7 @@
 //  Copyright © 2016 Mandea Daniel. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 public protocol DataSourceDelegate: class {

@@ -6,7 +6,7 @@
 //  Copyright © 2016 Mandea Daniel. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 open class BaseCell: NSObject {
   
