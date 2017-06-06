@@ -61,11 +61,11 @@ public extension UITableView {
 
 extension UITableView: NSFetchedResultsControllerDelegate {
   
-  public func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+  open func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     self.beginUpdates()
   }
   
-  public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+  open func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
     switch type {
     case .insert:
       self.insertSections(IndexSet(integer: Int(sectionIndex)), with: .automatic)
@@ -81,7 +81,7 @@ extension UITableView: NSFetchedResultsControllerDelegate {
     }
   }
   
-  public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+  open func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
     switch type {
     case NSFetchedResultsChangeType(rawValue: 0)!:
       // iOS 8 bug - Do nothing if we get an invalid change type.
@@ -117,7 +117,7 @@ extension UITableView: NSFetchedResultsControllerDelegate {
     }
   }
   
-  public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+  open func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     self.endUpdates()
   }
   
