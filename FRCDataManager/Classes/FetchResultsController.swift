@@ -42,5 +42,5 @@ public protocol FetchResultsController: class {
      - parameter cell:      The table view that will dequeue the cell
      - parameter indexPath: The indexPath of the cell that should be configured
      */
-    func configure(cell: UITableViewCell, for indexPath: IndexPath)
+    func configure(cell: Any, for indexPath: IndexPath)
 }
