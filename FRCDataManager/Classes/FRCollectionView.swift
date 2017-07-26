@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class FRCollectionView: UICollectionView, CollectionViewProcessUpdates {
+public class FRCollectionView: UICollectionView, CollectionViewProcessUpdates {
     
     // MARK: - Init
     
@@ -19,20 +19,20 @@ class FRCollectionView: UICollectionView, CollectionViewProcessUpdates {
         updateOperations = [BlockOperation]()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         updateOperations = [BlockOperation]()
     }
     
     // MARK: - CollectionViewProcessUpdates
     
-    var updateOperations: Array<BlockOperation>?
+    public var updateOperations: Array<BlockOperation>?
     
-    func addUpdateOperation(block:@escaping (Void)->Void) {
+    public func addUpdateOperation(block:@escaping (Void)->Void) {
         updateOperations?.append(BlockOperation(block: block))
     }
     
-    func clearUpdateStack() {
+    public func clearUpdateStack() {
         updateOperations?.removeAll()
     }
     
@@ -51,19 +51,19 @@ class FRCollectionView: UICollectionView, CollectionViewProcessUpdates {
 
 // MARK: - CollectionViewProcessUpdates
 
-protocol CollectionViewProcessUpdates {
+public protocol CollectionViewProcessUpdates {
     
-    var updateOperations: Array<BlockOperation>? {get set}
+   var updateOperations: Array<BlockOperation>? {get set}
     
-    func addUpdateOperation(block:@escaping (Void)->Void)
+   func addUpdateOperation(block:@escaping (Void)->Void)
     
-    func clearUpdateStack()
+   func clearUpdateStack()
 }
 
 // MARK: - NSFetchedResultsControllerDelegate
 
-extension NSFetchedResultsControllerDelegate where Self: CollectionViewProcessUpdates, Self: UICollectionView {
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+public extension NSFetchedResultsControllerDelegate where Self: CollectionViewProcessUpdates, Self: UICollectionView {
+    public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
         switch type {
         case .insert:
@@ -85,7 +85,7 @@ extension NSFetchedResultsControllerDelegate where Self: CollectionViewProcessUp
         
     }
     
-    func controller(controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+    public func controller(controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         
         switch type {
         case .insert:
@@ -100,7 +100,7 @@ extension NSFetchedResultsControllerDelegate where Self: CollectionViewProcessUp
         }
     }
     
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.performBatchUpdates({ () -> Void in
             // Cancel all block operations when VC deallocates
             guard let operations = self.updateOperations else {
@@ -119,11 +119,11 @@ extension NSFetchedResultsControllerDelegate where Self: CollectionViewProcessUp
 
 extension UICollectionView: FetchRequestDelegate {
     
-    public func shouldReload() {
+    open func shouldReload() {
         self.reloadData()
     }
     
-    public func scroll(at indexPath: IndexPath){
+    open func scroll(at indexPath: IndexPath){
         self.scrollToItem(at: indexPath, at: .top, animated: true)
     }
 }
