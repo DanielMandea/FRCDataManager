@@ -10,35 +10,68 @@ import Foundation
 import UIKit
 import CoreData
 
-class FRCollectionView: UICollectionView {
+class FRCollectionView: UICollectionView, CollectionViewProcessUpdates {
     
-    var fetchedResultsProcessingOperations: [BlockOperation] = []
+    // MARK: - Init
     
-    fileprivate func addFetchedResultsProcessingBlock(processingBlock:@escaping (Void)->Void) {
-        fetchedResultsProcessingOperations.append(BlockOperation(block: processingBlock))
+    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+        super.init(frame: frame, collectionViewLayout: layout)
+        updateOperations = [BlockOperation]()
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        updateOperations = [BlockOperation]()
+    }
+    
+    // MARK: - CollectionViewProcessUpdates
+    
+    var updateOperations: Array<BlockOperation>?
+    
+    func addUpdateOperation(block:@escaping (Void)->Void) {
+        updateOperations?.append(BlockOperation(block: block))
+    }
+    
+    func clearUpdateStack() {
+        updateOperations?.removeAll()
+    }
+    
+    // MARK: - deinit
     
     deinit {
         // Cancel all block operations when VC deallocates
-        for operation in fetchedResultsProcessingOperations {
-            operation.cancel()
+        if let operations = updateOperations {
+            for operation in operations {
+                operation.cancel()
+            }
+            clearUpdateStack()
         }
-        
-        fetchedResultsProcessingOperations.removeAll()
     }
 }
 
-extension FRCollectionView: NSFetchedResultsControllerDelegate {
+// MARK: - CollectionViewProcessUpdates
+
+protocol CollectionViewProcessUpdates {
+    
+    var updateOperations: Array<BlockOperation>? {get set}
+    
+    func addUpdateOperation(block:@escaping (Void)->Void)
+    
+    func clearUpdateStack()
+}
+
+// MARK: - NSFetchedResultsControllerDelegate
+
+extension NSFetchedResultsControllerDelegate where Self: CollectionViewProcessUpdates, Self: UICollectionView {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
         switch type {
         case .insert:
-            addFetchedResultsProcessingBlock {self.insertItems(at: [newIndexPath!])}
+            addUpdateOperation {self.insertItems(at: [newIndexPath!])}
         case .update:
-            addFetchedResultsProcessingBlock {self.reloadItems(at: [indexPath!])}
+            addUpdateOperation {self.reloadItems(at: [indexPath!])}
         case .move:
-            addFetchedResultsProcessingBlock {
+            addUpdateOperation {
                 // If installsStandardGestureForInteractiveMovement is on
                 // the UICollectionViewController will handle this on its own.
                 guard #available(iOS 9.0, *), self.beginInteractiveMovementForItem(at: indexPath!) else {
@@ -47,7 +80,7 @@ extension FRCollectionView: NSFetchedResultsControllerDelegate {
                 self.moveItem(at: indexPath!, to: newIndexPath!)
             }
         case .delete:
-            addFetchedResultsProcessingBlock {self.deleteItems(at: [indexPath!])}
+            addUpdateOperation {self.deleteItems(at: [indexPath!])}
         }
         
     }
@@ -56,11 +89,11 @@ extension FRCollectionView: NSFetchedResultsControllerDelegate {
         
         switch type {
         case .insert:
-            addFetchedResultsProcessingBlock { self.insertSections(IndexSet(integer: sectionIndex))}
+            addUpdateOperation { self.insertSections(IndexSet(integer: sectionIndex))}
         case .update:
-            addFetchedResultsProcessingBlock {self.reloadSections(IndexSet(integer:sectionIndex))}
+            addUpdateOperation {self.reloadSections(IndexSet(integer:sectionIndex))}
         case .delete:
-            addFetchedResultsProcessingBlock {self.deleteSections(IndexSet(integer: sectionIndex))}
+            addUpdateOperation {self.deleteSections(IndexSet(integer: sectionIndex))}
         case .move:
             // Not something I'm worrying about right now.
             break
@@ -69,11 +102,29 @@ extension FRCollectionView: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.performBatchUpdates({ () -> Void in
-            for operation in self.fetchedResultsProcessingOperations {
+            // Cancel all block operations when VC deallocates
+            guard let operations = self.updateOperations else {
+                return
+            }
+            for operation in operations {
                 operation.start()
             }
         }, completion: { (finished) -> Void in
-            self.fetchedResultsProcessingOperations.removeAll(keepingCapacity: false)
+            self.clearUpdateStack()
         })
     }
 }
+
+// MARK: - FetchRequestDelegate
+
+extension UICollectionView: FetchRequestDelegate {
+    
+    public func shouldReload() {
+        self.reloadData()
+    }
+    
+    public func scroll(at indexPath: IndexPath){
+        self.scrollToItem(at: indexPath, at: .top, animated: true)
+    }
+}
+
