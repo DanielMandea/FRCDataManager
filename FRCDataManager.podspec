@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FRCDataManager'
-  s.version          = '0.3.2'
+  s.version          = '0.3.3'
   s.summary          = 'Swift library that enhences work with NSFetchResultsController.'
 
 # This description is used to generate tags and improve search results.

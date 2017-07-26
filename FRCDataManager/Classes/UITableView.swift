@@ -120,8 +120,6 @@ extension UITableView: NSFetchedResultsControllerDelegate {
   open func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     self.endUpdates()
   }
-  
-  
 }
 
 // MARK: - FetchRequestDelegate

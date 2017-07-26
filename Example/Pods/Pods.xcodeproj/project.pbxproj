@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		160EE51073656495E6C4C20444DD82B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		1B22E6931F27957D00B6B5EA /* FRCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B22E6921F27957D00B6B5EA /* FRCollectionView.swift */; };
 		1BDC2A311E8151C400948511 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDC2A291E8151C400948511 /* BaseCell.swift */; };
 		1BDC2A321E8151C400948511 /* BaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDC2A2A1E8151C400948511 /* BaseDataSource.swift */; };
 		1BDC2A331E8151C400948511 /* BaseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDC2A2B1E8151C400948511 /* BaseSection.swift */; };
@@ -42,6 +43,7 @@
 		139A2ED63C58B1173A921EE1C92A6ACD /* Pods-FRCDataManager_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FRCDataManager_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		16F481F35124CDCA00AFC9217781B878 /* Pods-FRCDataManager_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FRCDataManager_Example-umbrella.h"; sourceTree = "<group>"; };
 		1A4C328106CFB6545DCEFE943CBA4188 /* Pods-FRCDataManager_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FRCDataManager_Example-resources.sh"; sourceTree = "<group>"; };
+		1B22E6921F27957D00B6B5EA /* FRCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRCollectionView.swift; sourceTree = "<group>"; };
 		1BDC2A291E8151C400948511 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		1BDC2A2A1E8151C400948511 /* BaseDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataSource.swift; sourceTree = "<group>"; };
 		1BDC2A2B1E8151C400948511 /* BaseSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSection.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				1BDC2A2F1E8151C400948511 /* UITableView.swift */,
 				1BDC2A391E8181C500948511 /* FetchRequestDelegate.swift */,
 				1BDC2A3B1E81829400948511 /* TableViewDataSource.swift */,
+				1B22E6921F27957D00B6B5EA /* FRCollectionView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				1BDC2A3C1E81829400948511 /* TableViewDataSource.swift in Sources */,
 				1BDC2A351E8151C400948511 /* BaseDataManger.swift in Sources */,
 				1BDC2A3A1E8181C500948511 /* FetchRequestDelegate.swift in Sources */,
+				1B22E6931F27957D00B6B5EA /* FRCollectionView.swift in Sources */,
 				34951D812DBDF24F909874DC8209EFE2 /* FRCDataManager-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
