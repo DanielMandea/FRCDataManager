@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-public class FRCollectionView: UICollectionView, CollectionViewProcessUpdates {
+open class FRCollectionView: UICollectionView, CollectionViewProcessUpdates {
     
     // MARK: - Init
     
