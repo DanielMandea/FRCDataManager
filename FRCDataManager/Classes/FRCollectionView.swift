@@ -53,18 +53,36 @@ open class FRCollectionView: UICollectionView, CollectionViewProcessUpdates {
 
 public protocol CollectionViewProcessUpdates {
     
-   var updateOperations: Array<BlockOperation>? {get set}
+    var updateOperations: Array<BlockOperation>? {get set}
     
-   func addUpdateOperation(block:@escaping (Void)->Void)
+    func addUpdateOperation(block:@escaping (Void)->Void)
     
-   func clearUpdateStack()
+    func clearUpdateStack()
 }
 
 // MARK: - NSFetchedResultsControllerDelegate
 
-public extension NSFetchedResultsControllerDelegate where Self: CollectionViewProcessUpdates, Self: UICollectionView {
-    public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+extension FRCollectionView: NSFetchedResultsControllerDelegate {
+    
+    public func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         
+    }
+    
+    public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            addUpdateOperation { self.insertSections(IndexSet(integer: sectionIndex))}
+        case .update:
+            addUpdateOperation {self.reloadSections(IndexSet(integer:sectionIndex))}
+        case .delete:
+            addUpdateOperation {self.deleteSections(IndexSet(integer: sectionIndex))}
+        case .move:
+            // Not something I'm worrying about right now.
+            break
+        }
+    }
+    
+    public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
             addUpdateOperation {self.insertItems(at: [newIndexPath!])}
@@ -81,22 +99,6 @@ public extension NSFetchedResultsControllerDelegate where Self: CollectionViewPr
             }
         case .delete:
             addUpdateOperation {self.deleteItems(at: [indexPath!])}
-        }
-        
-    }
-    
-    public func controller(controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
-        
-        switch type {
-        case .insert:
-            addUpdateOperation { self.insertSections(IndexSet(integer: sectionIndex))}
-        case .update:
-            addUpdateOperation {self.reloadSections(IndexSet(integer:sectionIndex))}
-        case .delete:
-            addUpdateOperation {self.deleteSections(IndexSet(integer: sectionIndex))}
-        case .move:
-            // Not something I'm worrying about right now.
-            break
         }
     }
     
@@ -117,14 +119,13 @@ public extension NSFetchedResultsControllerDelegate where Self: CollectionViewPr
 
 // MARK: - FetchRequestDelegate
 
-extension UICollectionView: FetchRequestDelegate {
+extension FRCollectionView: FetchRequestDelegate {
     
-    open func shouldReload() {
+    public func shouldReload() {
         self.reloadData()
     }
     
-    open func scroll(at indexPath: IndexPath){
+    public func scroll(at indexPath: IndexPath){
         self.scrollToItem(at: indexPath, at: .top, animated: true)
     }
 }
-
