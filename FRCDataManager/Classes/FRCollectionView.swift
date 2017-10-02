@@ -28,7 +28,7 @@ open class FRCollectionView: UICollectionView, CollectionViewProcessUpdates {
     
     public var updateOperations: Array<BlockOperation>?
     
-    public func addUpdateOperation(block:@escaping (Void)->Void) {
+    public func addUpdateOperation(block:@escaping ()->Void) {
         updateOperations?.append(BlockOperation(block: block))
     }
     
@@ -55,7 +55,7 @@ public protocol CollectionViewProcessUpdates {
     
     var updateOperations: Array<BlockOperation>? {get set}
     
-    func addUpdateOperation(block:@escaping (Void)->Void)
+    func addUpdateOperation(block:@escaping ()->Void)
     
     func clearUpdateStack()
 }

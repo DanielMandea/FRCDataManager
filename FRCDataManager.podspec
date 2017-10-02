@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FRCDataManager'
-  s.version          = '0.3.6'
+  s.version          = '0.4.0'
   s.summary          = 'Swift library that enhences work with NSFetchResultsController.'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Powerfull pod library that enhances work with NSFetchresultsController, contains
   s.source           = { :git => 'https://github.com/DanielMandea/FRCDataManager.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/MandeaDaniel'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'FRCDataManager/Classes/**/*'
   
