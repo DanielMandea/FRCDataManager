@@ -8,11 +8,11 @@
 import Foundation
 import CoreData
 
-protocol FRCFetchGateway {
-    
-    func sections() -> Int
-    
-    func rows(in section: Int) -> Int
-    
-    func object(at indexPath: IndexPath) -> NSManagedObject
+public protocol FRCFetchGateway {
+  
+  func sections() -> Int
+  
+  func rows(in section: Int) -> Int
+  
+  func object(at indexPath: IndexPath) -> NSManagedObject
 }

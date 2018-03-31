@@ -46,8 +46,8 @@
 		16F481F35124CDCA00AFC9217781B878 /* Pods-FRCDataManager_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FRCDataManager_Example-umbrella.h"; sourceTree = "<group>"; };
 		1A4C328106CFB6545DCEFE943CBA4188 /* Pods-FRCDataManager_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FRCDataManager_Example-resources.sh"; sourceTree = "<group>"; };
 		1B22E6921F27957D00B6B5EA /* FRCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRCollectionView.swift; sourceTree = "<group>"; };
-		1B8F448120700A4F00BA2E36 /* FRCFetchGaeway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRCFetchGaeway.swift; sourceTree = "<group>"; };
-		1B8F448320700AD200BA2E36 /* FRCSetupGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRCSetupGateway.swift; sourceTree = "<group>"; };
+		1B8F448120700A4F00BA2E36 /* FRCFetchGaeway.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = FRCFetchGaeway.swift; sourceTree = "<group>"; tabWidth = 2; };
+		1B8F448320700AD200BA2E36 /* FRCSetupGateway.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = FRCSetupGateway.swift; sourceTree = "<group>"; tabWidth = 2; };
 		1BDC2A291E8151C400948511 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		1BDC2A2A1E8151C400948511 /* BaseDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataSource.swift; sourceTree = "<group>"; };
 		1BDC2A2B1E8151C400948511 /* BaseSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSection.swift; sourceTree = "<group>"; };
