@@ -1,6 +1,10 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '11.0'
 use_frameworks!
 
 target 'FRCDataManager_Example' do
+
   pod 'FRCDataManager', :path => '../'
 
   target 'FRCDataManager_Tests' do

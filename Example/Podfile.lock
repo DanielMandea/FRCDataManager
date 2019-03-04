@@ -1,16 +1,16 @@
 PODS:
-  - FRCDataManager (0.1.0)
+  - FRCDataManager (1.1.5)
 
 DEPENDENCIES:
   - FRCDataManager (from `../`)
 
 EXTERNAL SOURCES:
   FRCDataManager:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  FRCDataManager: d2198aa14759748975bd8514b01da0030365f910
+  FRCDataManager: cee863a2fa5c3286e4bed218deb0662fb310103b
 
-PODFILE CHECKSUM: 9736f94f9a8e0993d190b3e5d904c6ce6efb55df
+PODFILE CHECKSUM: 4ea046c7c294d2178bd18d3d9e3128f517dccfa4
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.6.0

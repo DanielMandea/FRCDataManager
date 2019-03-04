@@ -62,7 +62,7 @@ open class BaseDataSource: NSObject {
 
 // MARK: - TableViewDataSource where Self: BaseFetchResultsController
 
-public extension TableViewDataSource where Self: BaseDataSource {
+public extension ListDataSource where Self: BaseDataSource {
   
   public func sections() -> Int {
     return self.sections.count

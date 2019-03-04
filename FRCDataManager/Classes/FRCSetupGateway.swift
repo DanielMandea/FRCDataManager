@@ -9,7 +9,7 @@ import Foundation
 
 protocol FRCSetupGateway {
     
-    weak var delegate: FetchRequestDelegate? {get set}
+    var delegate: FetchRequestDelegate? {get set}
     var sortDescriptors: Array<NSSortDescriptor>! {get set}
     var fetchSize: Int! {get set}
     var predicate: NSPredicate? {get set}

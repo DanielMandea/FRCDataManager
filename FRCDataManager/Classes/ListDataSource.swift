@@ -1,5 +1,5 @@
 //
-//  TableViewDataSource.swift
+//  ListDataSource.swift
 //  Pods
 //
 //  Created by DanielMandea on 3/21/17.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-// MARK: - TableViewDataSource
+// MARK: - ListDataSource
 
-public protocol TableViewDataSource: class {
+public protocol ListDataSource: class {
   /**
    Use this method in order to get the number of sections available
    return:  The number of sections available
