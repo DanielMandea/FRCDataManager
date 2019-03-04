@@ -19,11 +19,9 @@ public extension UITableView {
      * :param   animated Used to define if the action should be animated
      */
     public func scrollToIndexPathWithDelay(_ delay:Double, indexPath: IndexPath, scrollPosition: UITableView.ScrollPosition, animated: Bool) {
-        let delay = delay * Double(NSEC_PER_SEC)
-        let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
-        DispatchQueue.main.asyncAfter(deadline: time, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             self.scrollToIndexPath(indexPath, scrollPosition: scrollPosition, animated: animated)
-        })
+        }
     }
     
     /**

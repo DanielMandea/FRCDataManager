@@ -10,6 +10,19 @@ import Foundation
 import UIKit
 import CoreData
 
+
+// MARK: - CollectionViewProcessUpdates
+
+public protocol CollectionViewProcessUpdates {
+    
+    var updateOperations: Array<BlockOperation>? {get set}
+    
+    func addUpdateOperation(block:@escaping ()->Void)
+    
+    func clearUpdateStack()
+}
+
+
 open class FRCollectionView: UICollectionView, CollectionViewProcessUpdates {
     
     // MARK: - Init
@@ -49,24 +62,9 @@ open class FRCollectionView: UICollectionView, CollectionViewProcessUpdates {
     }
 }
 
-// MARK: - CollectionViewProcessUpdates
-
-public protocol CollectionViewProcessUpdates {
-    
-    var updateOperations: Array<BlockOperation>? {get set}
-    
-    func addUpdateOperation(block:@escaping ()->Void)
-    
-    func clearUpdateStack()
-}
-
 // MARK: - NSFetchedResultsControllerDelegate
 
-extension FRCollectionView: NSFetchedResultsControllerDelegate {
-    
-    public func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        
-    }
+extension NSFetchedResultsControllerDelegate where Self: UICollectionView, Self: CollectionViewProcessUpdates {
     
     public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
@@ -114,18 +112,5 @@ extension FRCollectionView: NSFetchedResultsControllerDelegate {
         }, completion: { (finished) -> Void in
             self.clearUpdateStack()
         })
-    }
-}
-
-// MARK: - FetchRequestDelegate
-
-extension FRCollectionView: FetchRequestDelegate {
-    
-    public func shouldReload() {
-        self.reloadData()
-    }
-    
-    public func scroll(at indexPath: IndexPath){
-        self.scrollToItem(at: indexPath, at: .top, animated: true)
     }
 }

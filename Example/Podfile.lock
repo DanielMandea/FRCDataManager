@@ -1,5 +1,5 @@
 PODS:
-  - FRCDataManager (1.1.5)
+  - FRCDataManager (1.1.6)
 
 DEPENDENCIES:
   - FRCDataManager (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FRCDataManager: cee863a2fa5c3286e4bed218deb0662fb310103b
+  FRCDataManager: 1405dfe53fcdf036c8f03c4c535f78bc7c2070a9
 
 PODFILE CHECKSUM: 4ea046c7c294d2178bd18d3d9e3128f517dccfa4
 
