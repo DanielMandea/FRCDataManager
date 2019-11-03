@@ -32,7 +32,8 @@ import CoreData
  */
 public protocol FetchResultsController: class {
     
-    associatedtype ManagedObject:NSFetchRequestResult
+    associatedtype ManagedObject: NSFetchRequestResult
+    associatedtype CellType: Any
     
     var _fetchedResultsController: NSFetchedResultsController<ManagedObject>? { get set }
     var fetchedResultsController: NSFetchedResultsController<ManagedObject> { get }
@@ -42,5 +43,5 @@ public protocol FetchResultsController: class {
      - parameter cell:      The table view that will dequeue the cell
      - parameter indexPath: The indexPath of the cell that should be configured
      */
-    func configure(cell: Any, for indexPath: IndexPath)
+    func configure(cell: CellType, for indexPath: IndexPath)
 }

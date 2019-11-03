@@ -8,15 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FRCDataManager'
-  s.version          = '1.1.7'
+  s.version          = '1.1.9'
   s.summary          = 'Swift library that enhences work with NSFetchResultsController.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
   s.description      = <<-DESC
 Powerfull pod library that enhances work with NSFetchresultsController, contains multiple extensions and protocol that simplifies work with NSFetchresultsController, also splits the responsability of DataManager and Controller. Extend BaseDataManger as described in the example project and have fun!.
                        DESC
@@ -27,16 +20,7 @@ Powerfull pod library that enhances work with NSFetchresultsController, contains
   s.author           = { 'DanielMandea' => 'daniel.mandea@ro.ibm.com' }
   s.source           = { :git => 'https://github.com/DanielMandea/FRCDataManager.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/MandeaDaniel'
-
-  s.ios.deployment_target = '11.0'
-
+  s.platform        = :ios, "12.0"
+  s.swift_version   = "5.1"
   s.source_files = 'FRCDataManager/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'FRCDataManager' => ['FRCDataManager/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
